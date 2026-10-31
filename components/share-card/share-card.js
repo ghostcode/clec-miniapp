@@ -62,13 +62,17 @@ Component({
         canvas.height = Math.round(cssH * dpr);
         const scale = (cssW * dpr) / 750;
         ctx.scale(scale, scale);
+        this._canvas = canvas;
         this.drawCard(ctx, q);
-        wx.canvasToTempFilePath({
-          canvas,
-          fileType: 'png',
-          quality: 1,
-          success: (r) => this.setData({ tempPath: r.tempFilePath, drawing: false }),
-          fail: () => this.setData({ drawing: false })
+        // 小程序码为异步图片，绘制完成后再导出
+        this.drawQR(ctx, () => {
+          wx.canvasToTempFilePath({
+            canvas,
+            fileType: 'png',
+            quality: 1,
+            success: (r) => this.setData({ tempPath: r.tempFilePath, drawing: false }),
+            fail: () => this.setData({ drawing: false })
+          });
         });
       });
     },
@@ -136,24 +140,47 @@ Component({
       ctx.fillStyle = T.sub;
       ctx.fillText('—— ' + q.src, 375, textTop + lines.length * lineH + 46);
 
-      // 底部信息
+      // 底部信息（左侧小程序码 + 右侧文案）
       const now = new Date();
       const dateStr = `${now.getFullYear()}.${now.getMonth() + 1}.${now.getDate()} 星期${WEEK[now.getDay()]}`;
       ctx.strokeStyle = T.border;
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(120, 1086);
-      ctx.lineTo(630, 1086);
+      ctx.moveTo(120, 1050);
+      ctx.lineTo(630, 1050);
       ctx.stroke();
-      ctx.font = '24px sans-serif';
+
+      ctx.textAlign = 'left';
       ctx.fillStyle = T.sub;
-      ctx.fillText(dateStr, 375, 1124);
+      ctx.font = '24px sans-serif';
+      ctx.fillText(dateStr, 268, 1085);
       ctx.font = '23px sans-serif';
-      ctx.fillText('富有是天赋 · 快乐是人权', 375, 1160);
+      ctx.fillText('富有是天赋 · 快乐是人权', 268, 1118);
+      ctx.font = '22px sans-serif';
+      ctx.fillText('长按识别小程序码', 268, 1152);
     },
 
     kaiFont(size) {
       return `${size}px "Kaiti SC", "KaiTi", "STKaiti", "BiauKai", serif`;
+    },
+
+    // 小程序码（项目根目录 123.jpg），绘制于卡片左下角
+    drawQR(ctx, done) {
+      if (!this._canvas) return done();
+      const size = 100;
+      const x = 120, y = 1058;
+      const pad = 6;
+      // 白底圆角，保证深色主题下也清晰
+      this.roundRect(ctx, x - pad, y - pad, size + pad * 2, size + pad * 2, 10);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      const img = this._canvas.createImage();
+      img.onload = () => {
+        ctx.drawImage(img, x, y, size, size);
+        done();
+      };
+      img.onerror = () => done(); // 图片缺失时仍正常导出（无小程序码）
+      img.src = '/123.jpg';
     },
 
     // 逐字测量自动换行

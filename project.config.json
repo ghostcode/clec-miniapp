@@ -1,7 +1,7 @@
 {
   "compileType": "miniprogram",
   "libVersion": "3.3.4",
-  "appid": "touristappid",
+  "appid": "wx91f36cca6c6d8607",
   "projectname": "clec-miniapp",
   "setting": {
     "es6": true,
@@ -12,11 +12,30 @@
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "ignoreUploadUnusedFiles": true,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
   },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "simulatorPluginLibVersion": {}
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  }
 }
