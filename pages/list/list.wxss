@@ -1,0 +1,82 @@
+.page {
+  padding: 24rpx 0 60rpx;
+}
+
+.head {
+  text-align: center;
+  padding: 24rpx 0 8rpx;
+}
+
+.head-icon {
+  font-size: 64rpx;
+}
+
+.head-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2f4a3d;
+  margin-top: 8rpx;
+}
+
+.head-desc {
+  font-size: 24rpx;
+  color: #a49c8c;
+  margin-top: 6rpx;
+}
+
+.item {
+  padding: 36rpx 36rpx 28rpx;
+}
+
+.item-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-foot .src-line {
+  margin-top: 20rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.item-acts {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mini-act {
+  font-size: 26rpx;
+  color: #8f8a7e;
+  background: #f2ecdf;
+  border-radius: 999rpx;
+  padding: 8rpx 20rpx;
+  margin-left: 12rpx;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.mini-act.fav {
+  color: #c0392b;
+  background: #f9e3de;
+}
+
+.empty {
+  text-align: center;
+  color: #a49c8c;
+  font-size: 26rpx;
+  padding: 160rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.end {
+  text-align: center;
+  font-size: 22rpx;
+  color: #b3ab9a;
+  margin-top: 48rpx;
+}

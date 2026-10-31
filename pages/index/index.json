@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "每日一句",
+  "usingComponents": {
+    "share-card": "/components/share-card/share-card"
+  }
+}

@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索语录关键词…" placeholder-class="ph"
+      value="{{kw}}" bindinput="onKwInput" bindconfirm="doSearch" confirm-type="search" />
+    <view class="search-btn" bindtap="doSearch">搜索</view>
+  </view>
+
+  <view class="grid">
+    <view class="grid-item" wx:for="{{cats}}" wx:key="name"
+      bindtap="goList" data-cat="{{item.name}}">
+      <view class="grid-icon" style="background: {{item.color}}">{{item.icon}}</view>
+      <view class="grid-name">{{item.name}}</view>
+      <view class="grid-desc">{{item.desc}}</view>
+      <view class="grid-count">{{item.count}} 条</view>
+    </view>
+  </view>
+
+  <view class="tip">共收录 {{total}} 条语录 · 持续摘编中</view>
+</view>

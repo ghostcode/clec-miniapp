@@ -1,0 +1,66 @@
+/* 全局样式 —— 宣纸米色 + 墨绿 + 暗金 */
+page {
+  background: #f5f0e6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #3a3630;
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+/* 通用卡片 */
+.card {
+  background: #fffdf8;
+  border-radius: 24rpx;
+  box-shadow: 0 6rpx 24rpx rgba(72, 60, 40, 0.08);
+  padding: 40rpx 36rpx;
+  margin: 24rpx 32rpx;
+}
+
+/* 语录正文（楷体韵味） */
+.quote-text {
+  font-family: 'Kaiti SC', 'KaiTi', 'STKaiti', 'BiauKai', serif;
+  font-size: 36rpx;
+  line-height: 1.9;
+  color: #34302a;
+  word-break: break-all;
+}
+
+/* 分类徽章 */
+.cat-badge {
+  display: inline-block;
+  font-size: 22rpx;
+  color: #fff;
+  padding: 6rpx 22rpx;
+  border-radius: 999rpx;
+  letter-spacing: 2rpx;
+}
+
+/* 来源 */
+.src-line {
+  font-size: 24rpx;
+  color: #a49c8c;
+  margin-top: 24rpx;
+}
+
+/* 操作按钮 */
+.act-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #6b6455;
+  background: #f2ecdf;
+  border-radius: 999rpx;
+  padding: 16rpx 0;
+  margin: 0 12rpx;
+}
+
+.act-btn.active {
+  color: #b0552f;
+  background: #f7e5d8;
+}
+
+.act-row {
+  display: flex;
+  margin-top: 32rpx;
+}

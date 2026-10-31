@@ -1,0 +1,9 @@
+{
+  "desc": "CLEC 语录小程序",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

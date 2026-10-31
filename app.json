@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/list/list",
+    "pages/favorite/favorite"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2f4a3d",
+    "navigationBarTitleText": "CLEC 语录",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f0e6",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8f8a7e",
+    "selectedColor": "#2f4a3d",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "每日一句",
+        "iconPath": "icons/quote.png",
+        "selectedIconPath": "icons/quote-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "icons/grid.png",
+        "selectedIconPath": "icons/grid-active.png"
+      },
+      {
+        "pagePath": "pages/favorite/favorite",
+        "text": "收藏",
+        "iconPath": "icons/heart.png",
+        "selectedIconPath": "icons/heart-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="card item" wx:for="{{list}}" wx:key="id">
+    <view class="cat-badge" style="background: {{item.catInfo.color}}">{{item.cat}}</view>
+    <view class="quote-text">{{item.text}}</view>
+    <view class="item-foot">
+      <view class="src-line">—— {{item.src}}</view>
+      <view class="item-acts">
+        <view class="mini-act" bindtap="copyQuote" data-id="{{item.id}}">复制</view>
+        <view class="mini-act" bindtap="openShareCard" data-id="{{item.id}}">分享</view>
+        <view class="mini-act del" bindtap="removeFav" data-id="{{item.id}}">移除</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!list.length}}">
+    <view class="empty-icon">🤍</view>
+    <view>还没有收藏语录</view>
+    <view class="empty-tip">在每日一句或分类列表中，点击 ♡ 即可收藏</view>
+    <view class="empty-btn" bindtap="goBrowse">去逛逛</view>
+  </view>
+</view>
+
+<share-card show="{{shareShow}}" quote="{{shareQuote}}" bind:close="onShareClose" />

@@ -1,0 +1,88 @@
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30, 26, 20, 0.62);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: 620rpx;
+  background: #fffdf8;
+  border-radius: 28rpx;
+  padding: 32rpx 32rpx 28rpx;
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.28);
+  animation: pop 0.24s ease-out;
+}
+
+@keyframes pop {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.canvas-wrap {
+  position: relative;
+  width: 540rpx;
+  margin: 0 auto;
+}
+
+.share-canvas {
+  width: 540rpx;
+  height: 864rpx; /* 750 : 1200 等比 */
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 16rpx rgba(72, 60, 40, 0.15);
+}
+
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  color: #a49c8c;
+}
+
+.pop-acts {
+  display: flex;
+  margin-top: 28rpx;
+}
+
+.pop-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  border-radius: 999rpx;
+  padding: 18rpx 0;
+  margin: 0 8rpx;
+  color: #6b6455;
+  background: #f2ecdf;
+}
+
+.pop-btn.primary {
+  color: #f7f3e8;
+  background: #2f4a3d;
+}
+
+.pop-btn.ghost {
+  background: #ece5d4;
+}
+
+.pop-btn:active {
+  opacity: 0.85;
+}
+
+.pop-tip {
+  text-align: center;
+  font-size: 21rpx;
+  color: #b3ab9a;
+  margin-top: 18rpx;
+}

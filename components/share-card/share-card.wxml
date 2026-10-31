@@ -1,0 +1,14 @@
+<view class="mask" wx:if="{{show}}" bindtap="onClose">
+  <view class="popup" catchtap="noop">
+    <view class="canvas-wrap">
+      <canvas type="2d" id="shareCanvas" class="share-canvas"></canvas>
+      <view class="loading" wx:if="{{drawing}}">绘制中…</view>
+    </view>
+    <view class="pop-acts">
+      <view class="pop-btn ghost" bindtap="changeTheme">换底色</view>
+      <view class="pop-btn" bindtap="save">保存图片</view>
+      <view class="pop-btn primary" bindtap="share">分享给朋友</view>
+    </view>
+    <view class="pop-tip">保存后可发朋友圈 · 图片直发需微信较新版本支持</view>
+  </view>
+</view>

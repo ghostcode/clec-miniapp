@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "语录列表",
+  "usingComponents": {
+    "share-card": "/components/share-card/share-card"
+  }
+}

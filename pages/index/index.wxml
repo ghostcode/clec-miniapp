@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="date-bar">
+    <view class="date-left">
+      <view class="date-str">{{dateStr}}</view>
+      <view class="date-week">{{weekday}}</view>
+    </view>
+    <view class="date-total">共 {{total}} 条语录</view>
+  </view>
+
+  <view class="card quote-card" wx:if="{{quote}}">
+    <view class="quote-mark">“</view>
+    <view class="cat-badge" style="background: {{catInfo.color}}">{{quote.cat}}</view>
+    <view class="quote-text main-text">{{quote.text}}</view>
+    <view class="src-line">—— {{quote.src}}</view>
+    <view class="act-row">
+      <view class="act-btn {{isFav ? 'active' : ''}}" bindtap="toggleFav">{{isFav ? '♥ 已收藏' : '♡ 收藏'}}</view>
+      <view class="act-btn" bindtap="copyQuote">复制</view>
+      <view class="act-btn" bindtap="openShareCard">分享</view>
+    </view>
+  </view>
+
+  <view class="next-btn" bindtap="nextQuote">换 一 句</view>
+
+  <view class="section">
+    <view class="section-title">
+      <view class="section-bar"></view>
+      <text>今日精选</text>
+      <view class="section-bar"></view>
+    </view>
+
+    <view class="card five-item" wx:for="{{five}}" wx:key="id">
+      <view class="five-top">
+        <view class="cat-badge small" style="background: {{item.catInfo.color}}">{{item.cat}}</view>
+      </view>
+      <view class="five-text">{{item.text}}</view>
+      <view class="five-foot">
+        <view class="src-line">—— {{item.src}}</view>
+        <view class="five-acts">
+          <view class="five-act {{item.isFav ? 'fav' : ''}}" bindtap="toggleFavFive" data-id="{{item.id}}">{{item.isFav ? '♥' : '♡'}}</view>
+          <view class="five-act" bindtap="copyFive" data-id="{{item.id}}">复制</view>
+          <view class="five-act" bindtap="openShareCardFive" data-id="{{item.id}}">分享</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer" bindtap="goCategory">
+    按分类浏览全部语录 →
+  </view>
+  <view class="footer sub">语录摘自《理财圣经 CLEC 版》《CLEC 宝典》</view>
+</view>
+
+<share-card show="{{shareShow}}" quote="{{shareQuote}}" bind:close="onShareClose" />

@@ -1,0 +1,34 @@
+<view class="page">
+  <view class="head" wx:if="{{catInfo}}">
+    <view class="head-icon">{{catInfo.icon}}</view>
+    <view class="head-name">{{catInfo.name}}</view>
+    <view class="head-desc">{{catInfo.desc}} · {{list.length}} 条</view>
+  </view>
+  <view class="head small" wx:else>
+    <view class="head-name">{{title}}</view>
+    <view class="head-desc">{{list.length}} 条结果</view>
+  </view>
+
+  <view class="card item" wx:for="{{list}}" wx:key="id">
+    <view class="quote-text">{{item.text}}</view>
+    <view class="item-foot">
+      <view class="src-line">—— {{item.src}}</view>
+      <view class="item-acts">
+        <view class="mini-act {{item.isFav ? 'fav' : ''}}" bindtap="toggleFav" data-id="{{item.id}}">
+          {{item.isFav ? '♥' : '♡'}}
+        </view>
+        <view class="mini-act" bindtap="copyQuote" data-id="{{item.id}}">复制</view>
+        <view class="mini-act" bindtap="openShareCard" data-id="{{item.id}}">分享</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!list.length}}">
+    <view class="empty-icon">🍂</view>
+    <view>没有找到相关语录</view>
+  </view>
+
+  <view class="end" wx:if="{{list.length}}">— 已经到底啦 —</view>
+</view>
+
+<share-card show="{{shareShow}}" quote="{{shareQuote}}" bind:close="onShareClose" />
